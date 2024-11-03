@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 
 
 const Categories = ({ categories }) => {
-    console.log(categories);
     return (
         <div role="tablist" className="tabs tabs-lifted">
             {

@@ -10,7 +10,9 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <HeadingCommon title={'Browse Coffees by Category'} subTitle={'Choose your favorite coffee'}></HeadingCommon>
+            <HeadingCommon
+             title={'Browse Coffees by Category'}
+              subTitle={'Choose your favorite coffee'}></HeadingCommon>
             <Categories categories={categories}></Categories>
             <Outlet></Outlet>
         </div>

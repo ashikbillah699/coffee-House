@@ -3,7 +3,6 @@
 import { Link } from "react-router-dom";
 
 const CoffeeCard = ({ coffee }) => {
-    console.log(coffee)
     const { id, image, category, name, origin, rating, type, popularity } = coffee;
     return (
         <Link to={`/coffee/${id}`}>
