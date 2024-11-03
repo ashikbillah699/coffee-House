@@ -15,7 +15,6 @@ const getAllFavorite = () =>{
 
 // add copy to local storage
 const addFavorite = coffee => {
-    console.log(coffee);
     const favorite = getAllFavorite()
     const isExist = favorite.find(item => item.id == coffee.id)
     if(isExist){
@@ -26,6 +25,13 @@ const addFavorite = coffee => {
     toast.success('successfully add')
 }
 
+const removeFavorite = (id) =>{
+    const favorite = getAllFavorite()
+    const remaining = favorite.filter(coffee => coffee.id != id)
+    localStorage.setItem('favorite', JSON.stringify(remaining))
+    toast.success('successfully removed')
+}
 
-export {addFavorite,getAllFavorite};
+
+export {addFavorite,getAllFavorite,removeFavorite};
 

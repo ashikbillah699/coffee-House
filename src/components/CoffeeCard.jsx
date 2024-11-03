@@ -1,29 +1,38 @@
 /* eslint-disable react/prop-types */
+import { FaTrashAlt } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 
-import { Link } from "react-router-dom";
+const CoffeeCard = ({ coffee,handleRemove }) => {
 
-const CoffeeCard = ({ coffee }) => {
+    const { pathname } = useLocation();
+    console.log(pathname)
+
     const { id, image, category, name, origin, rating, type, popularity } = coffee;
     return (
-        <Link to={`/coffee/${id}`}>
-            <div className="card bg-base-100 border 
+        <div className="relative">
+            <Link to={`/coffee/${id}`}>
+                <div className="card bg-base-100 border 
             transform transition-transform duration-300 
             hover:-translate-y-2 hover:scale-105">
-                <figure>
-                    <img
-                        src={image}
-                        alt={name} />
-                </figure>
-                <div className="card-body">
-                    <h2 className="card-title ">Name: {name}</h2>
-                    <p className="font-medium">Category: {category}</p>
-                    <p className="font-medium">Type: {type}</p>
-                    <p className="font-medium">Origin: {origin}</p>
-                    <p className="font-medium">Rating: {rating}</p>
-                    <p className="font-medium">Popularity: {popularity}</p>
+                    <figure>
+                        <img
+                            src={image}
+                            alt={name} />
+                    </figure>
+                    <div className="card-body">
+                        <h2 className="card-title ">Name: {name}</h2>
+                        <p className="font-medium">Category: {category}</p>
+                        <p className="font-medium">Type: {type}</p>
+                        <p className="font-medium">Origin: {origin}</p>
+                        <p className="font-medium">Rating: {rating}</p>
+                        <p className="font-medium">Popularity: {popularity}</p>
+                    </div>
                 </div>
-            </div>
-        </Link>
+            </Link>
+            {
+                pathname === '/dashboard' && <p onClick={() => handleRemove(id)} className="absolute -top-5 -right-5 p-3 bg-warning rounded-full"><FaTrashAlt></FaTrashAlt></p>
+            }
+        </div>
     );
 };
 
